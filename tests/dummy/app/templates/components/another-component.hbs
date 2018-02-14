@@ -1,0 +1,4 @@
+<button class="regular-action-button" click={{action 'resetText'}}>{{buttonText}}</button>
+<button class="alternative-target-action-button" click={{action 'resetText' target=alternativeTarget}}>{{buttonText}}</button>
+<button class="named-action-button" click={{action actionName}}>{{buttonText}}</button>
+<button class="nested-action-button" click={{action (action 'resetText')}}>{{buttonText}}</button>

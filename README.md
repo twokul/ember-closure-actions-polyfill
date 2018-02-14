@@ -1,7 +1,11 @@
 ember-closure-actions-polyfill
 ==============================================================================
 
-[Short description of the addon.]
+It's pretty hacky. Use at your own risk.
+
+Provides a polyfill for the [Closure
+Actions](https://emberjs.com/blog/2015/06/12/ember-1-13-0-released.html#toc_closure-actions)
+feature added in Ember 1.13.
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,8 +18,34 @@ ember install ember-closure-actions-polyfill
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+```javascript
+// app/controllers/index.js
 
+import Controller from '@ember/controller';
+
+export default Controller.extend({
+  actions: {
+    setName(name) {
+      model.set('name', name);
+    }
+  }
+});
+```
+
+```hbs
+{{!-- app/templates/index.hbs --}}
+{{my-component submit=(action 'setName')}}
+```
+
+```javascript
+import Component from '@ember/component';
+
+export default Component.extend({
+  click() {
+    this.submit(this.get('name'));
+  }
+});
+```
 
 Contributing
 ------------------------------------------------------------------------------
